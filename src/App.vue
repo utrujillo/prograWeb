@@ -1,9 +1,9 @@
 <template>  
-  <section id='header'>
+  <!-- <section id='header'>
     <article id='banner'>
       <h1>Mi proyecto</h1>
     </article>
-  </section>
+  </section> -->
   <section>
     <nav id='menu'>
       <ul>
@@ -15,14 +15,16 @@
     </nav>
   </section>
 
-  <router-view></router-view>
+  <div class="container-fluid pt-3">
+    <router-view></router-view>
+  </div>
 </template>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
 @import url('https://necolas.github.io/normalize.css/8.0.1/normalize.css');
 
-html, body{ font-family: 'Roboto', sans-serif; }
+/* html, body{ font-family: 'Roboto', sans-serif; } */
 
 #banner {
   background: url(assets/images/symbolic.jpg); 

@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card-header">
       <div class="d-flex justify-content-between">
-        <span>Listado de Usuarios</span>
+        <span>Listado</span>
         <div class="btn btn-primary" v-on:click='viewForm = true'>Agregar usuario</div>
       </div>
       
@@ -44,9 +44,9 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr v-for="user in users" :key='user'>
             <td>[Editar] [Borrar]</td>
-            <td>Juan</td>
+            <td>{{ user }}</td>
             <td></td>
             <td></td>
           </tr>
@@ -58,6 +58,7 @@
 
 <script>
 export default {
+  name: 'HelloWorld',
   data () {
     return {
       viewForm: false,
@@ -67,14 +68,21 @@ export default {
         apellidos: '',
         telefono: '',
         correo: ''
-      }
+      },
     }
   },
   // Dentro de methods se especifican todos los metodos(funciones)
   methods: {
     store() {
-      console.log( this.user )
-    }
+      // guardar en db
+      let newUser = {
+        nombre: this.user.nombre,
+        apellidos: this.user.apellidos,
+        telefono: this.user.telefono,
+        correo: this.user.correo
+      }
+      this.users.push( newUser )
+    },
   }
 }
 </script>

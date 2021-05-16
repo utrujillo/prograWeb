@@ -34,24 +34,33 @@
         </div>
       </div>
 
-      <table class="table table-striped mt-2">
-        <thead class="table-dark">
-          <tr>
-            <th>Opciones</th>
-            <th>Nombre</th>
-            <th>Telefono</th>
-            <th>Correo</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="user in users" :key='user'>
-            <td>[Editar] [Borrar]</td>
-            <td>{{ user }}</td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
+      <div v-if='users.length == 0'>
+        <div>
+          Aun no hay usuarios agregados
+        </div>
+      </div>
+
+      <div v-else>
+        <table class="table table-striped mt-2">
+          <thead class="table-dark">
+            <tr>
+              <th>Opciones</th>
+              <th>Nombre</th>
+              <th>Telefono</th>
+              <th>Correo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="user in users" :key='user'>
+              <td>[Editar] [Borrar]</td>
+              <td>{{ user }}</td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div> 
+      
     </div>
   </div>
 </template>

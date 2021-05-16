@@ -53,9 +53,9 @@
           <tbody>
             <tr v-for="user in users" :key='user'>
               <td>[Editar] [Borrar]</td>
-              <td>{{ user }}</td>
-              <td></td>
-              <td></td>
+              <td>{{ completeName( user ) }}</td>
+              <td>{{ user.telefono }}</td>
+              <td>{{ user.correo }}</td>
             </tr>
           </tbody>
         </table>
@@ -82,6 +82,11 @@ export default {
   },
   // Dentro de methods se especifican todos los metodos(funciones)
   methods: {
+    completeName (el) {
+      let nombre = `${el.nombre.charAt(0).toUpperCase()}${el.nombre.slice(1)}`,
+          apellidos = el.apellidos.charAt(0).toUpperCase() + el.apellidos.slice(1)
+      return `${nombre} ${apellidos}`
+    },
     store() {
       // guardar en db
       let newUser = {

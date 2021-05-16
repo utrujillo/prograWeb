@@ -52,7 +52,10 @@
           </thead>
           <tbody>
             <tr v-for="user in users" :key='user'>
-              <td>[Editar] [Borrar]</td>
+              <td>
+                <fas icon="edit" />
+                <fas icon="trash" />
+              </td>
               <td>{{ completeName( user ) }}</td>
               <td>{{ user.telefono }}</td>
               <td>{{ user.correo }}</td>
